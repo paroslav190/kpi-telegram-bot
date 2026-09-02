@@ -15,7 +15,7 @@ import os
 # ================= НАЛАШТУВАННЯ =================
 EMAIL = "iasa-kn61@ukr.net"  # <--- ВПИШИ СВОЮ ПОШТУ
 PASSWORD = "avuGkSlgPL3LLovt"
-BOT_TOKEN = "8924622903:AAE9zOKnrKA4o2bVQfxciKgLrIY9xKL_1q8"
+BOT_TOKEN = "8924622903:AAFUUvctYBGm4w6d3DeSB3T6GwVY3GauT_c"
 CHAT_ID = "-1004391355458"
 MAIL_THREAD_ID = 7161
 # ================================================
