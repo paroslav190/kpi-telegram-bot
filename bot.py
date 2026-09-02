@@ -13,7 +13,7 @@ import threading
 import os
 
 # ================= НАЛАШТУВАННЯ =================
-EMAIL = "ТВОЯ_ПОШТА@ukr.net"  # <--- ВПИШИ СВОЮ ПОШТУ
+EMAIL = "iasa-kn61@ukr.net"  # <--- ВПИШИ СВОЮ ПОШТУ
 PASSWORD = "avuGkSlgPL3LLovt"
 BOT_TOKEN = "8924622903:AAE9zOKnrKA4o2bVQfxciKgLrIY9xKL_1q8"
 CHAT_ID = "-1004391355458"
