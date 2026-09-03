@@ -130,20 +130,20 @@ def get_keyboard(subject_type):
 
 # === ЛОГІКА МЕНЮ /ZOOM ===
 def get_zoom_main_keyboard():
-    buttons = []
-    row = []
+    all_buttons = []
     for subj_key, links in LINKS.items():
         subj_name = SUBJECT_NAMES.get(subj_key, "Предмет")
         if len(links) == 1:
-            row.append(InlineKeyboardButton(text=subj_name, url=links[0][1]))
+            all_buttons.append(InlineKeyboardButton(text=subj_name, url=links[0][1]))
         else:
-            row.append(InlineKeyboardButton(text=subj_name, callback_data=f"zoom_{subj_key}"))
-        
-        if len(row) == 2:
-            buttons.append(row)
-            row = []
-    if row:
-        buttons.append(row)
+            all_buttons.append(InlineKeyboardButton(text=subj_name, callback_data=f"zoom_{subj_key}"))
+    
+    # Додаємо кнопку закриття
+    all_buttons.append(InlineKeyboardButton(text="❌ Закрити меню", callback_data="zoom_close"))
+    
+    # Розбиваємо всі зібрані кнопки по 2 в один ряд
+    buttons = [all_buttons[i:i + 2] for i in range(0, len(all_buttons), 2)]
+    
     return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 def get_zoom_sub_keyboard(subj_key):
@@ -161,7 +161,9 @@ async def cmd_zoom(message: Message):
 async def process_zoom_callback(callback: CallbackQuery):
     action = callback.data.split("_")[1]
     
-    if action == "main":
+    if action == "close":
+        await callback.message.delete()
+    elif action == "main":
         await callback.message.edit_text("🔗 <b>Виберіть предмет:</b>", reply_markup=get_zoom_main_keyboard())
     elif action in LINKS:
         subj_name = SUBJECT_NAMES.get(action, "Предмет")
