@@ -30,7 +30,10 @@ LINKS = {
         ("Безнос", "https://us02web.zoom.us/j/88258710884?pwd=RzdqZTg5clhNTWltRGFQOTRmUFFuQT09"), 
         ("Корнач", "https://us04web.zoom.us/j/78663748130")
     ],
-    "physics": [("Фізика", "https://us02web.zoom.us/j/84191489478?pwd=ALoGHLau6caqKIPwaU3UMdbTKTqmL7.1")],
+    "physics": [
+        ("Калита", "https://us02web.zoom.us/j/84191489478?pwd=ALoGHLau6caqKIPwaU3UMdbTKTqmL7.1"),
+        ("Лаби",   "https://us05web.zoom.us/j/83481750583?pwd=nLxCZtmlRKaub328S4kaOevUvoB3rb.1")
+    ],
     "matan": [("Матан", "https://us04web.zoom.us/j/5044819147?pwd=GpZr4xSe2mYxg30pTFgvgRYEg8HmOZ.1")],
     "linal": [("Лінал", "https://us05web.zoom.us/j/3362272501?pwd=Vm42cEVNQVBrcUlhYWpzdnYwOUNMQT09")],
     "discrete": [("Дискретка", "https://us04web.zoom.us/j/78663748130")],
