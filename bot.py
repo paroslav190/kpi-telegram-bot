@@ -41,7 +41,7 @@ LINKS = {
         ("Лекція", "https://meet.google.com/ubf-mpzs-pbv"), 
         ("Практика", "https://us04web.zoom.us/j/78663748130")
     ],
-    "english": [("Англійська", "https://us04web.zoom.us/j/78663748130")]
+    "english": [("Англійська", "https://us04web.zoom.us/j/72518328143?pwd=PnlakhxtzUaa61naSbbUOUYmY9n21e.1")]
 }
 
 # Красиві назви предметів для меню
@@ -303,10 +303,9 @@ async def cmd_mute(message: Message):
             permissions=ChatPermissions(can_send_messages=False), 
             until_date=until_date
         )
-        await message.reply(f"🤐 Користувач {message.from_user.first_name} самозамутився на 10 хвилин.")
+        
     except Exception as e:
-        await message.reply("Не можу видати мут. Бот повинен мати права адміністратора (Обмеження користувачів)!")
-
+        
 @dp.message(Command("kurator_pidor"))
 async def cmd_kurator(message: Message):
     until_date = datetime.now(KYIV_TZ) + timedelta(minutes=30)
