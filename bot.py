@@ -305,6 +305,7 @@ async def cmd_mute(message: Message):
         )
         
     except Exception as e:
+        pass
         
 @dp.message(Command("kurator_pidor"))
 async def cmd_kurator(message: Message):
