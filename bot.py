@@ -17,7 +17,7 @@ import pytz
 # ================= НАЛАШТУВАННЯ =================
 EMAIL = "iasa-kn61@ukr.net" 
 PASSWORD = "avuGkSlgPL3LLovt"
-BOT_TOKEN = "8924622903:AAFAHYG3zD36C3_zJs8-dAD30PrShQPiJGo"
+BOT_TOKEN = "8979718841:AAHgKglgOEH6cTJUgnKit-hrH1orOW8eViY"
 CHAT_ID = "-1004391355458"
 MAIL_THREAD_ID = 7161
 KYIV_TZ = pytz.timezone('Europe/Kyiv')
@@ -306,7 +306,6 @@ async def cmd_mute(message: Message):
         
     except Exception as e:
         pass
-        
 @dp.message(Command("kurator_pidor"))
 async def cmd_kurator(message: Message):
     until_date = datetime.now(KYIV_TZ) + timedelta(minutes=30)
