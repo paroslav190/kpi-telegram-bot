@@ -52,7 +52,8 @@ SUBJECT_NAMES = {
     "linal": "Лінал",
     "discrete": "Дискретна мат.",
     "rhetoric": "Риторика",
-    "english": "🇬🇧 Англійська"
+    "english": "🇬🇧 Англійська",
+    "pe": "Основи здорового способу життя"
 }
 
 BELLS = {
@@ -69,9 +70,12 @@ SCHEDULE = {
             2: {"name": "Лабораторна, Алгоритмізація та програмування", "type": "algo"},
             3: {"name": "Практика, Культура усного професійного мовлення (риторика)", "type": "rhetoric"},
             4: {"name": "Практика, Англійська мова", "type": "english"},
-            5: {"name": "Практика, Англійська мова", "type": "english"}
+            5: {"name": "Практика, Алгоритмізація та програмування", "type": "algo"}
         },
-        1: {}, 
+        1: {
+            1: {"name": "Практика, Основи здорового способу життя", "type": "pe"},
+            2: {"name": "Практика, Основи здорового способу життя", "type": "pe"}
+        }, 
         2: {
             1: {"name": "Лекція, Алгебра та аналітична геометрія", "type": "linal"},
             2: {"name": "Лекція, Дискретна математика", "type": "discrete"},
@@ -93,22 +97,27 @@ SCHEDULE = {
     2: { # ДРУГИЙ ТИЖДЕНЬ
         0: {
             2: {"name": "Лабораторна, Алгоритмізація та програмування", "type": "algo"},
-            4: {"name": "Практика, Англійська мова", "type": "english"},
-            5: {"name": "Практика, Алгоритмізація та програмування", "type": "algo"}
+            4: {"name": "Практика, Англійська мова", "type": "english"}
         },
-        1: {},
+        1: {
+            1: {"name": "Практика, Основи здорового способу життя", "type": "pe"},
+            2: {"name": "Практика, Основи здорового способу життя", "type": "pe"}
+        },
         2: {
             1: {"name": "Лекція, Алгебра та аналітична геометрія", "type": "linal"},
             2: {"name": "Лекція, Дискретна математика", "type": "discrete"},
             3: {"name": "Лекція, Математичний аналіз", "type": "matan"}
         },
         3: {
+            1: {"name": "Практика, Англійська мова", "type": "english"},
             2: {"name": "Лекція, Алгоритмізація та програмування", "type": "algo"},
-            3: {"name": "Лекція, Автоматизація та програмування", "type": "algo"}
+            3: {"name": "Лекція, Алгоритмізація та програмування", "type": "algo"},
+            4: {"name": "Лекція, Фізика", "type": "physics"}
         },
         4: {
             1: {"name": "Практика, Математичний аналіз", "type": "matan"},
             2: {"name": "Практика, Дискретна математика", "type": "discrete"},
+            3: {"name": "Практика, Фізика", "type": "physics"},
             4: {"name": "Практика, Алгебра та аналітична геометрія", "type": "linal"}
         }
     }
@@ -252,6 +261,7 @@ async def cmd_time_left(message: Message):
             
     # 3. Якщо час більший за початок останньої пари (всі пари вже пройшли)
     await message.reply("На сьогодні всі пари вже закінчились! Відпочиваємо 🍻")
+
 @dp.message(Command("now"))
 async def cmd_now(message: Message):
     now = datetime.now(KYIV_TZ)
@@ -306,6 +316,7 @@ async def cmd_mute(message: Message):
         
     except Exception as e:
         pass
+
 @dp.message(Command("kurator_pidor"))
 async def cmd_kurator(message: Message):
     until_date = datetime.now(KYIV_TZ) + timedelta(minutes=30)
@@ -416,7 +427,7 @@ async def email_worker():
 
 # === ВЕБ-СЕРВЕР ДЛЯ RENDER ===
 app = Flask(__name__)
-
+    
 @app.route('/')
 def home():
     return "Bot is running!"
